@@ -1,0 +1,41 @@
+body {
+    background-color: #063251;
+}
+.img-planeta {
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.text-descriptiv {
+    font-family: 'Courier', Courier, monospace;
+    white-space: pre-wrap;
+    color: white;
+
+}
+.hr-line {
+    border: 1px solid white;
+    width: 70%;
+    margin-top: 30px;
+}
+.hastag {
+    font-size: 20px;
+    color: white;
+    display: inline-block;
+    font-family: 'Courier', Courier, monospace;
+    font-weight: bold;
+    word-spacing: 400px;
+    margin-left: 300px;
+}
+.goback {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier', Courier, monospace;
+    font-weight: bold;
+    margin-top: 50px;
+}
+a:hover {
+    color: #83CF8F;
+}
