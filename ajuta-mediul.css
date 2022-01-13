@@ -39,12 +39,12 @@ body {
 a:hover {
     color: #83CF8F;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
     .hastag {
-      margin-left: 250px;
+      margin-left: 150px;
     }
     .text-descriptiv {
-      font-size: 30px;
+      font-size: 25px;
       white-space:normal;
 
     }
