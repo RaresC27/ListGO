@@ -404,8 +404,8 @@ margin-left: 150px;
 }
 @media screen and (max-width: 992px) {
   #img1,#img2,#img3{
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     display: inline;
     margin-left: 80px;
   }
