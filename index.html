@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de cumpărături</title>
+    <title>ListGO</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="./assets/favico.png" />
   </head>
   <body>
     <div class="link">
@@ -32,6 +33,23 @@
       <div class="grocery-container">
         <div class="grocery-list"></div>
         <button class="clear-btn">Șterge lista</button>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Trimite lista</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="modal-p">
+              Alege metoda prin care dorești să distribui lista ta de
+              cumpărături
+            </p>
+            <img src="assets/via-link.png" alt="via-link" id="img1" />
+            <img src="assets/via-email.png" alt="via-email" id="img2" />
+            <img src="assets/via-whatsapp.png" alt="via-whatsapp" id="img3" />
+          </div>
+        </div>
       </div>
     </section>
     <script src="app.js"></script>

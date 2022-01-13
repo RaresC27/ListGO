@@ -1,4 +1,3 @@
-// ****** select items **********
 
 const form = document.querySelector(".grocery-form");
 const alert = document.querySelector(".alert");
@@ -7,22 +6,13 @@ const submitBtn = document.querySelector(".submit-btn");
 const container = document.querySelector(".grocery-container");
 const list = document.querySelector(".grocery-list");
 const clearBtn = document.querySelector(".clear-btn");
-// edit option
 let editElement;
 let editFlag = false;
 let editID = "";
-// ****** event listeners **********
 
-// submit form
 form.addEventListener("submit", addItem);
-// clear list
 clearBtn.addEventListener("click", clearItems);
-// display items onload
 window.addEventListener("DOMContentLoaded", setupItems);
-
-// ****** functions **********
-
-// add item
 function addItem(e) {
   e.preventDefault();
   const value = grocery.value;
@@ -46,45 +36,34 @@ function addItem(e) {
               </button>
             </div>
           `;
-    // add event listeners to both buttons;
     const deleteBtn = element.querySelector(".delete-btn");
     deleteBtn.addEventListener("click", deleteItem);
     const editBtn = element.querySelector(".edit-btn");
     editBtn.addEventListener("click", editItem);
 
-    // append child
     list.appendChild(element);
-    // display alert
     displayAlert("Produsul a fost adaugat in lista", "success");
-    // show container
     container.classList.add("show-container");
-    // set local storage
     addToLocalStorage(id, value);
-    // set back to default
     setBackToDefault();
   } else if (value !== "" && editFlag) {
     editElement.innerHTML = value;
     displayAlert("Produs modificat", "success");
 
-    // edit  local storage
     editLocalStorage(editID, value);
     setBackToDefault();
   } else {
     displayAlert("Nu ai introdus niciun produs", "danger");
   }
 }
-// display alert
 function displayAlert(text, action) {
   alert.textContent = text;
   alert.classList.add(`alert-${action}`);
-  // remove alert
   setTimeout(function () {
     alert.textContent = "";
     alert.classList.remove(`alert-${action}`);
   }, 1000);
 }
-
-// clear items
 function clearItems() {
   const items = document.querySelectorAll(".grocery-item");
   if (items.length > 0) {
@@ -98,8 +77,6 @@ function clearItems() {
   localStorage.removeItem("list");
 }
 
-// delete item
-
 function deleteItem(e) {
   const element = e.currentTarget.parentElement.parentElement;
   const id = element.dataset.id;
@@ -112,22 +89,16 @@ function deleteItem(e) {
   displayAlert("Produs șters din listă", "danger");
 
   setBackToDefault();
-  // remove from local storage
   removeFromLocalStorage(id);
 }
-// edit item
 function editItem(e) {
   const element = e.currentTarget.parentElement.parentElement;
-  // set edit item
   editElement = e.currentTarget.parentElement.previousElementSibling;
-  // set form value
   grocery.value = editElement.innerHTML;
   editFlag = true;
   editID = element.dataset.id;
-  //
   submitBtn.textContent = "modifică";
 }
-// set backt to defaults
 function setBackToDefault() {
   grocery.value = "";
   editFlag = false;
@@ -135,9 +106,6 @@ function setBackToDefault() {
   submitBtn.textContent = "adaugă";
 }
 
-// ****** local storage **********
-
-// add to local storage
 function addToLocalStorage(id, value) {
   const grocery = { id, value };
   let items = getLocalStorage();
@@ -174,10 +142,6 @@ function editLocalStorage(id, value) {
   localStorage.setItem("list", JSON.stringify(items));
 }
 
-// SETUP LOCALSTORAGE.REMOVEITEM('LIST');
-
-// ****** setup items **********
-
 function setupItems() {
   let items = getLocalStorage();
 
@@ -207,12 +171,37 @@ function createListItem(id, value) {
               </button>
             </div>
           `;
-  // add event listeners to both buttons;
+          
   const deleteBtn = element.querySelector(".delete-btn");
   deleteBtn.addEventListener("click", deleteItem);
   const editBtn = element.querySelector(".edit-btn");
   editBtn.addEventListener("click", editItem);
 
-  // append child
+
   list.appendChild(element);
+}
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

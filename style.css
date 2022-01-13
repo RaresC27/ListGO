@@ -326,6 +326,25 @@ Grocery List
 .clear-btn:hover {
   color: var(--clr-red-dark);
 }
+#myBtn {
+  text-transform: capitalize;
+  width: 10rem;
+  height: 1.5rem;
+  display: grid;
+  align-items: center;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  margin: 0 auto;
+  font-size: 0.85rem;
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1.25rem;
+}
+#myBtn:hover {
+  color: var(--clr-blue-light);
+}
 .link {
     margin:1rem;
     font-size: 20px;
@@ -334,4 +353,50 @@ Grocery List
 }    
 a:visited {
     color: #A5D5F8;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 120px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+/* The Close Button */
+.close {
+  color: #ec2b3c;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #d36974;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-p {
+  margin-left: 100px;
+}
+#img1,#img2,#img3{
+width: auto;
+display: inline;
+margin-left: 150px;
 }
