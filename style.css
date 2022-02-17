@@ -417,3 +417,9 @@ margin-left: 150px;
     margin-top: -10px;
   }
 }
+.metode-share {
+  text-align: center;
+}
+.metode-share a:hover {
+  color: var(--clr-primary-1);
+}

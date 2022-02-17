@@ -1,4 +1,3 @@
-
 const form = document.querySelector(".grocery-form");
 const alert = document.querySelector(".alert");
 const grocery = document.getElementById("grocery");
@@ -11,6 +10,7 @@ let editFlag = false;
 let editID = "";
 
 form.addEventListener("submit", addItem);
+list.addEventListener("click", handleTaskClick);
 clearBtn.addEventListener("click", clearItems);
 window.addEventListener("DOMContentLoaded", setupItems);
 function addItem(e) {
@@ -171,12 +171,10 @@ function createListItem(id, value) {
               </button>
             </div>
           `;
-          
   const deleteBtn = element.querySelector(".delete-btn");
   deleteBtn.addEventListener("click", deleteItem);
   const editBtn = element.querySelector(".edit-btn");
   editBtn.addEventListener("click", editItem);
-
 
   list.appendChild(element);
 }
@@ -185,18 +183,25 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
-
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
-}
+};
 
-
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+};
+
+function handleTaskClick(event) {
+  const style = event.target.style;
+  if (!style.textDecoration) {
+    style.textDecoration = "line-through";
+  } else {
+    style.textDecoration = "none";
   }
 }
