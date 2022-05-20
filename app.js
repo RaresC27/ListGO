@@ -42,18 +42,18 @@ function addItem(e) {
     editBtn.addEventListener("click", editItem);
 
     list.appendChild(element);
-    displayAlert("Produsul a fost adaugat in lista", "success");
+    displayAlert("The product has been added on the list!", "success");
     container.classList.add("show-container");
     addToLocalStorage(id, value);
     setBackToDefault();
   } else if (value !== "" && editFlag) {
     editElement.innerHTML = value;
-    displayAlert("Produs modificat", "success");
+    displayAlert("The product has been modified!", "success");
 
     editLocalStorage(editID, value);
     setBackToDefault();
   } else {
-    displayAlert("Nu ai introdus niciun produs", "danger");
+    displayAlert("Please enter a valid product!", "danger");
   }
 }
 function displayAlert(text, action) {
@@ -72,7 +72,7 @@ function clearItems() {
     });
   }
   container.classList.remove("show-container");
-  displayAlert("Listă goala", "danger");
+  displayAlert("Empty list!", "danger");
   setBackToDefault();
   localStorage.removeItem("list");
 }
@@ -86,7 +86,7 @@ function deleteItem(e) {
   if (list.children.length === 0) {
     container.classList.remove("show-container");
   }
-  displayAlert("Produs șters din listă", "danger");
+  displayAlert("The products has been deleted!", "danger");
 
   setBackToDefault();
   removeFromLocalStorage(id);
@@ -97,13 +97,13 @@ function editItem(e) {
   grocery.value = editElement.innerHTML;
   editFlag = true;
   editID = element.dataset.id;
-  submitBtn.textContent = "modifică";
+  submitBtn.textContent = "modify";
 }
 function setBackToDefault() {
   grocery.value = "";
   editFlag = false;
   editID = "";
-  submitBtn.textContent = "adaugă";
+  submitBtn.textContent = "add";
 }
 
 function addToLocalStorage(id, value) {
